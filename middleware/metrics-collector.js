@@ -6,19 +6,18 @@ class Collector {
 
   }
 
-  isRouteDefined(route, method, code, status){
+  isRouteDefined(route, method, status){
     if(!this.storage[route]) return false;
     if(!this.storage[route][method]) return false;
     if(!this.storage[route][method][status]) return false;
-    if(!this.storage[route][method][status][code]) return false;
     return true;
   }
 
-  getRouteData(route, method, code, status) {
-    if(this.isRouteDefined(route,method,code,status)){
-        return this.storage[route][method][status][code];
+  getRouteData(route, method, status) {
+    if(this.isRouteDefined(route,method,status)){
+        return this.storage[route][method][status];
     }
-    return this.createRouteData(route, method, code, status);
+    return this.createRouteData(route, method, status);
   }
 
   isError(status){
@@ -31,16 +30,16 @@ class Collector {
     return false;
   }
 
-  createRouteData(route, method, code, status) {
+  createRouteData(route, method, status) {
     this.storage[route] = {};
     this.storage[route][method] = {};
     this.storage[route][method].success = {};
     this.storage[route][method].error = {};
-    this.storage[route][method][status][code] = {
+    this.storage[route][method][status] = {
       count: 0
     };
 
-    return this.storage[route][method][status][code];
+    return this.storage[route][method][status];
   }
 
   getStatus(code){
@@ -50,18 +49,18 @@ class Collector {
     return 'success';
   }
 
-  updateRouteData(routeData,route,method,code, status){
-    this.storage[route][method][status][code];
+  updateRouteData(routeData,route,method,status){
+    this.storage[route][method][status];
   }
 
   collect(route, method, code, responseTime) {
     let status = this.getStatus(code);
-    let routeData = this.getRouteData(route,method,code, status);
+    let routeData = this.getRouteData(route,method, status);
     if(!routeData){
       return;
     }
     calculator.calc(routeData, responseTime);
-    this.updateRouteData(routeData, route,method,code, status);
+    this.updateRouteData(routeData, route,method, status);
   }
 
   summary(){
