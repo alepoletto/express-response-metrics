@@ -33,8 +33,6 @@ class Collector {
   createRouteData(route, method, status) {
     this.storage[route] = {};
     this.storage[route][method] = {};
-    this.storage[route][method].success = {};
-    this.storage[route][method].error = {};
     this.storage[route][method][status] = {
       count: 0
     };
@@ -60,7 +58,7 @@ class Collector {
       return;
     }
     calculator.calc(routeData, responseTime);
-    this.updateRouteData(routeData, route,method, status);
+    this.updateRouteData(routeData, route, method, status);
   }
 
   summary(){
