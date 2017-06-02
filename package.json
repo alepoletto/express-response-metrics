@@ -1,6 +1,6 @@
 {
   "name": "express-response-metrics",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple express middleware tha collect useful and simple metrics based on the response time of a request.",
   "main": "index.js",
   "scripts": {
