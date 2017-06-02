@@ -1,0 +1,15 @@
+{
+  "name": "express-response-metrics",
+  "version": "0.1.0",
+  "description": "Simple express middleware tha collect useful and simple metrics based on the response time of a request.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexandre Poletto <alexandrepoletto@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "fixed-array": "1.0.0",
+    "stats-lite": "2.0.4"
+  }
+}
