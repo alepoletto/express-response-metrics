@@ -1,13 +1,21 @@
 {
   "name": "express-response-metrics",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Simple express middleware tha collect useful and simple metrics based on the response time of a request.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alepoletto/express-response-metrics.git"
+  },
   "author": "Alexandre Poletto",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alepoletto/express-response-metrics/issues"
+  },
+  "homepage": "https://github.com/alepoletto/express-response-metrics#readme",
   "dependencies": {
     "fixed-array": "1.0.0",
     "stats-lite": "2.0.4"
