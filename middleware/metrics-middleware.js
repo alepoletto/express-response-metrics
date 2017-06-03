@@ -6,7 +6,8 @@ const metricMiddleware = (options) => {
   //any options goes here
   const server = new MetricsServer();
   const collector = new Collector();
-  server.init(8190, collector);
+  let port = option.port || 8190;
+  server.init(port, collector);
 
   return (req, res, next) => {
       let chronometer = new Chronometer();

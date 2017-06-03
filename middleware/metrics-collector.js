@@ -20,11 +20,11 @@ class Collector {
     return this.createRouteData(route, method, status);
   }
 
-  isError(status){
-    if(!status){
+  isError(code){
+    if(!code){
       status = 404;
     }
-    if(status === 400 || status === 404){
+    if(code >= 400){
       return true;
     }
     return false;
@@ -33,10 +33,8 @@ class Collector {
   createRouteData(route, method, status) {
     this.storage[route] = {};
     this.storage[route][method] = {};
-    this.storage[route][method][status] = {
-      count: 0
-    };
-
+    this.storage[route][method].success = {};
+    this.storage[route][method].error = {};
     return this.storage[route][method][status];
   }
 
@@ -48,7 +46,7 @@ class Collector {
   }
 
   updateRouteData(routeData,route,method,status){
-    this.storage[route][method][status];
+    this.storage[route][method][status] = routeData;
   }
 
   collect(route, method, code, responseTime) {

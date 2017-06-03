@@ -4,6 +4,7 @@ const FixedArray = require("fixed-array");
 const HISTORY_SIZE = 20;
 
 const calc = (routeData, responseTime) => {
+  if(!routeData.count) routeData.count = 0;
   if(!routeData.callsHistory) routeData.callsHistory = FixedArray(HISTORY_SIZE);
   routeData.callsHistory.push(responseTime);
   routeData.count += 1;
