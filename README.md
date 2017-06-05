@@ -58,7 +58,6 @@ all set, all your metrics will be available at http://<your_host>/8190/metrics e
   },
   "/example/user/vip": {
     "GET": {
-      "success": {},
       "error": {
         "count": 1,
         "min": 3,
