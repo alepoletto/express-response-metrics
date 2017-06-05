@@ -6,7 +6,7 @@ const metricMiddleware = (options) => {
   //any options goes here
   const server = new MetricsServer();
   const collector = new Collector();
-  let port = option.port || 8190;
+  let port = options.port || 8190;
   server.init(port, collector);
 
   return (req, res, next) => {

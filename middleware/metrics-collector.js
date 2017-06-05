@@ -31,10 +31,13 @@ class Collector {
   }
 
   createRouteData(route, method, status) {
-    this.storage[route] = {};
-    this.storage[route][method] = {};
-    this.storage[route][method].success = {};
-    this.storage[route][method].error = {};
+    if(!this.storage[route]){
+      this.storage[route] = {};
+    }
+    if(!this.storage[route][method]){
+        this.storage[route][method] = {};
+    }
+    this.storage[route][method][status] = {};
     return this.storage[route][method][status];
   }
 

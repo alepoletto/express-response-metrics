@@ -4,7 +4,7 @@
   "description": "Simple express middleware tha collect useful and simple metrics based on the response time of a request.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/**.spec.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,12 @@
   "dependencies": {
     "fixed-array": "1.0.0",
     "stats-lite": "2.0.4"
+  },
+  "devDependencies": {
+    "axios": "^0.16.2",
+    "chai": "^4.0.1",
+    "express": "^4.15.3",
+    "mocha": "^3.4.2",
+    "supertest": "^3.0.0"
   }
 }
