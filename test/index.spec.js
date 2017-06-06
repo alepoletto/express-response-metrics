@@ -1,9 +1,14 @@
 const server = require('./testServer');
+const express = require('express');
 const request = require('supertest');
 const expect = require('chai').expect;
 const axios = require('axios');
+const sinon = require('sinon');
+const expressResponse = require('../index');
+let metricsServer = require('../middleware/metrics-server');
+const app = express();
 
-describe('Express Response Metrics', () => {
+describe('Express Response Metrics use', () => {
 
   before(() => {
         axios.get('http://localhost:3001/example/url');
