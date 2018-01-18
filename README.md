@@ -2,19 +2,23 @@
 
 Express middleware to collect metrics
 
-##Instalation
+## Instalation
 
-excute the follow command in ypur project folder
+execute the follow command in your project folder
 
 ```shell
 npm install express-response-metrics --save
 ```
 
+or this if yarn is more your thing
+
+```shell
+yarn add express-response-metrics
+```
+
 ## How to use:
 
 just require the module and register it as an express middleware.
-
-you need to provide a port.
 
 ```javascript
 'use strict';
@@ -24,10 +28,11 @@ const responseMetrics = require('express-response-metrics');
 
 const app = express();
 
-app.use(responseMetrics({
-  port: 8190
-});
-
+app.use(
+  responseMetrics({
+    port: 8190
+  })
+);
 ```
 
 all set, all your metrics will be available at http://<your_host>/8190/metrics ex: http://localhost:8190/metrics in a json format like this
@@ -70,10 +75,22 @@ all set, all your metrics will be available at http://<your_host>/8190/metrics e
     }
   }
 }
-
 ```
 
 the metrics will be collect for success and error cases.
+
+## Options
+
+you can provide the follow options
+
+```javascript
+app.use(
+  responseMetrics({
+    port: 9090, // if no port is provided 8190 will be used as default
+    url: 'some_url' // if no url is provided 'metrics' will be used as default
+  })
+);
+```
 
 ## Why another metric framework?
 

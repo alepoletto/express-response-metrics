@@ -9,13 +9,12 @@ class Chronometer {
   }
 
   stop() {
-    return this.timeTaken = Date.now() - this.startTime;
+    return (this.timeTaken = Date.now() - this.startTime);
   }
 
   log() {
     return this.timeTaken;
   }
-
 }
 
 module.exports = Chronometer;

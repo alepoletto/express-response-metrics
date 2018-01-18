@@ -6,10 +6,11 @@ const metricMiddleware = options => {
   const server = new MetricsServer();
   const collector = new Collector();
   let port = (options && options.port) || 8190;
-  server.init(port, collector);
+  const url = (options && options.url) || 'metrics';
+  server.init(port, url, collector);
 
   return (req, res, next) => {
-    let chronometer = new Chronometer();
+    const chronometer = new Chronometer();
     chronometer.start();
     let end = res.end;
     res.end = function() {
